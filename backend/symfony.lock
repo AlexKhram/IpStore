@@ -127,9 +127,6 @@
     "symfony/contracts": {
         "version": "v1.0.2"
     },
-    "symfony/css-selector": {
-        "version": "v4.2.4"
-    },
     "symfony/debug": {
         "version": "v4.2.4"
     },
