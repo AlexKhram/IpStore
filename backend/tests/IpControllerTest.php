@@ -33,7 +33,7 @@ class IpControllerTest extends WebTestCase
      */
     public function testQueryIpSuccess($ip)
     {
-        $client = static::createClient([], ['HTTP_HOST' => 'test.local']);
+        $client = static::createClient();
         $client->request('GET', '/rest/ip/'.$ip);
 
         $this->assertSame(200, $client->getResponse()->getStatusCode());
@@ -49,7 +49,7 @@ class IpControllerTest extends WebTestCase
      */
     public function testQueryIpInvalid($ip)
     {
-        $client = static::createClient([], ['HTTP_HOST' => 'test.local']);
+        $client = static::createClient();
         $client->request('GET', '/rest/ip/'.$ip);
 
         $this->assertSame(422, $client->getResponse()->getStatusCode());
@@ -65,7 +65,7 @@ class IpControllerTest extends WebTestCase
      */
     public function testAddIpSuccess($ip)
     {
-        $client = static::createClient([], ['HTTP_HOST' => 'test.local']);
+        $client = static::createClient();
         $client->request('PUT', '/rest/ip/'.$ip);
 
         $this->assertSame(200, $client->getResponse()->getStatusCode());
@@ -90,7 +90,7 @@ class IpControllerTest extends WebTestCase
      */
     public function testAddIpInvalid($ip)
     {
-        $client = static::createClient([], ['HTTP_HOST' => 'test.local']);
+        $client = static::createClient();
         $client->request('PUT', '/rest/ip/'.$ip);
 
         $this->assertSame(422, $client->getResponse()->getStatusCode());
