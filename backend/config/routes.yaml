@@ -1,0 +1,5 @@
+api_v1_routes:
+  resource: ../src/Controller/Rest
+  type:     annotation
+  prefix:   /rest
+  name_prefix: rest_

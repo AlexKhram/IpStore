@@ -1,0 +1,36 @@
+version: '2'
+
+services:
+    db:
+        image: "mysql:5.7"
+        volumes:
+            - ./.data/db:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    php:
+        build:
+            context: php7-fpm
+            args:
+                TIMEZONE: ${TIMEZONE}
+        environment:
+            PHP_XDEBUG: 1
+            PHP_XDEBUG_DEFAULT_ENABLE: 1
+            PHP_XDEBUG_REMOTE_AUTOSTART: 1
+            PHP_XDEBUG_REMOTE_HOST: 172.17.0.1
+            PHP_IDE_CONFIG: serverName=test.local
+            PHP_XDEBUG_REMOTE_CONNECT_BACK: 1
+        volumes:
+            - ${SYMFONY_APP_PATH}:/var/www/app
+            - ./php7-fpm/docker-php-ext-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug2.ini
+    nginx:
+        build: nginx
+        ports:
+            - 80:80
+        volumes_from:
+            - php
+        volumes:
+            - ./logs/nginx/:/var/log/nginx
+            - ./nginx/symfony.conf:/etc/nginx/sites-enabled/symfony
