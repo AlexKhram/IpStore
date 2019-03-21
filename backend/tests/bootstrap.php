@@ -63,36 +63,6 @@ $input = new ArrayInput([
 $input->setInteractive(false);
 $command->run($input, new ConsoleOutput(ConsoleOutput::VERBOSITY_QUIET));
 
-//// load fixtures
-//$command = new LoadDataFixturesDoctrineCommand();
-//$application->add($command);
-//$input = new ArrayInput([
-//    'command'  => 'doctrine:fixtures:load',
-//    '--append' => true,
-//    '--env'    => 'test'
-//]);
-//$command->run($input, new ConsoleOutput(ConsoleOutput::VERBOSITY_VERBOSE));
-
-
-
-//require_once __DIR__ . '/../app/autoload.php';
-//require_once __DIR__ . '/../var/bootstrap.php.cache';
-//require_once __DIR__ . '/../app/AppKernel.php';
-//
-//use Doctrine\Bundle\DoctrineBundle\Command\CreateDatabaseDoctrineCommand;
-//use Doctrine\Bundle\DoctrineBundle\Command\DropDatabaseDoctrineCommand;
-////use Doctrine\Bundle\FixturesBundle\Command\LoadDataFixturesDoctrineCommand;
-//use Doctrine\Bundle\MigrationsBundle\Command\MigrationsMigrateDoctrineCommand;
-//use Symfony\Bundle\FrameworkBundle\Console\Application;
-//use Symfony\Component\Console\Output\ConsoleOutput;
-//use Symfony\Component\Console\Input\ArrayInput;
-//
-//$kernel = new AppKernel('test', true);
-//$kernel->boot();
-//
-//$application = new Application($kernel);
-//
-
 
 
 
