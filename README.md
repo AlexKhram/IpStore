@@ -2,8 +2,11 @@
 
 Rest API for adding/getting IP4/6
 
-GET http://localhost/rest/ip/127.0.0.1 --
-PUT http://localhost/rest/ip/127.0.0.1 --
+
+GET http://localhost/rest/ip/127.0.0.1
+
+PUT http://localhost/rest/ip/127.0.0.1 
+
 
 #### How to setup:
 clone project `git clone git@github.com:AlexKhram/IpStore.git`
